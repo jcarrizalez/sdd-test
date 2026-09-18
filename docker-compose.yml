@@ -1,0 +1,24 @@
+services:
+    app:
+        build:
+            args:
+                user: develop
+                uid: 1000
+            context: .
+            dockerfile: .docker/docker_files/Dockerfile.app
+        container_name: cartaya
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        networks:
+            - network
+        working_dir: /var/www/html
+        ports:
+            - '127.0.0.11:5173:5173'
+        volumes:
+            - .:/var/www/html
+        tty: true
+        restart: unless-stopped
+
+networks:
+    network:
+        driver: bridge

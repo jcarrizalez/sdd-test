@@ -1,0 +1,11 @@
+.git
+.cursor
+.specify
+node_modules
+dist
+specs
+*.md
+.DS_Store
+Thumbs.db
+*.log
+.env*
